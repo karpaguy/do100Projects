@@ -11,8 +11,8 @@ function addItem() {
     textItem.classList.add('itemText');
     textItem.textContent = inputItem.value
 
-    itemNew.append(textItem);
     itemNew.append(checkBox);
+    itemNew.append(textItem);
     itemList.append(itemNew);
 }
 
