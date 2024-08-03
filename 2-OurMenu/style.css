@@ -9,7 +9,8 @@
     font-style: normal;
 
     /* Variaveis */
-    
+    --menu-item-size: 420px;
+    --brown-color: rgb(215, 154, 40);
 }
 
 
@@ -18,23 +19,55 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+
 }
 
+.title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+}
 .title h2 {
     font-weight: 700;
     font-size: 2rem;
 }
 .title .underline {
-    width: 200px;
-    border: 3px solid rgb(216, 157, 47);
+    width: 100px;
+    border: 3px solid var(--brown-color);
     border-radius: 2px;
 }
 
+.menu-item {
+    width: var(--menu-item-size);
+    height: auto;
+    margin: 30px;
+}
 .photo {
-    width: 400px;
+    width: var(--menu-item-size);
     height: 250px;
 
-    border: 4px solid rgb(216, 157, 47);
+    border: 4px solid var(--brown-color);
     border-radius: 5px;
-    /* Aplicar um degradê aqui na borda depois. */
+}
+.photo:hover {
+    cursor: pointer;
+    
+}
+
+.item-info header {
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid rgb(241, 236, 226);
+}
+.item-info header {
+    display: flex;
+    justify-content: space-between;
+}
+.item-info header h4 {
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+.item-info header .price {
+    color: var(--brown-color);;
 }
