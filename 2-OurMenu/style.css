@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+
+    /* Variaveis */
+    --menu-item-size: 420px;
+    --brown-color: rgb(215, 154, 40);
+}
+
+
+/* Estilos */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+}
+.title h2 {
+    font-weight: 700;
+    font-size: 2rem;
+}
+.title .underline {
+    width: 100px;
+    border: 3px solid var(--brown-color);
+    border-radius: 2px;
+}
+
+.menu-item {
+    width: var(--menu-item-size);
+    height: auto;
+    margin: 30px;
+}
+.photo {
+    width: var(--menu-item-size);
+    height: 250px;
+
+    border: 4px solid var(--brown-color);
+    border-radius: 5px;
+}
+.photo:hover {
+    cursor: pointer;
+    
+}
+
+.item-info header {
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid rgb(241, 236, 226);
+}
+.item-info header {
+    display: flex;
+    justify-content: space-between;
+}
+.item-info header h4 {
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+.item-info header .price {
+    color: var(--brown-color);;
+}
