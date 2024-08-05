@@ -1,29 +1,12 @@
-// FUNCTIONS
-function addItem() {
-    let itemNew = document.createElement('li');
-    let inputItem = document.querySelector('.inputItem')
+const itemList = document.querySelector('.itemList');
+const addItemBtn = document.querySelector('.addItem');
 
-    let checkBox = document.createElement('input');
-    checkBox.setAttribute('type', 'checkbox');
-    checkBox.classList.add('itemCheck');
+addItemBtn.addEventListener('click', function() {
+    let newItem = `<li class="item">
+    <label class="itemText">${document.querySelector('.inputItem').value}</label>
+    <input type="checkbox" class="itemCheck">
+    </li>`
+    itemList.innerHTML += newItem;
+});
 
-    let textItem = document.createElement('LABEL');
-    textItem.classList.add('itemText');
-    textItem.textContent = inputItem.value
 
-    itemNew.append(checkBox);
-    itemNew.append(textItem);
-    itemList.append(itemNew);
-}
-
-// --------
-
-let itemList = document.querySelector('.itemList');
-let addBtn = document.querySelector('.addItem');
-
-addBtn.addEventListener('click', addItem);
-
-// DEBUG
-// console.log(
-//     window.document.querySelector('.container')
-// );
