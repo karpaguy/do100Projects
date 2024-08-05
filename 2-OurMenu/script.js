@@ -12,7 +12,7 @@ const menu = [
         title: "Bolo Sabooroso",
         category: "cafe-manha",
         price: 15.99,
-        img: "./images/Pancakes_with_fruit.jpg",
+        img: "./images/Quinoa_Chocolate_Cake.jpg",
         desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat error facilis odit corrupti modi sunt ipsam itaque, incidunt quo aspernatur?"
     }
 ];
