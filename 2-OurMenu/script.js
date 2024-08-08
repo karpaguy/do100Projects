@@ -17,10 +17,8 @@ const menu = [
     }
 ];
 
-const sectionCenter = document.querySelector('.section-center');
-
-window.addEventListener('DOMContentLoaded', function() {
-    let displayMenu = menu.map(function(item) {
+function displayMenuItems(menuItems) {
+    let displayMenu = menuItems.map(function(item) {
         // console.log(item)
         return `<article class="menu-item">
             <img src=${item.img} class="photo" alt=${item.title}>
@@ -38,4 +36,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
     displayMenu = displayMenu.join(''); // Impede de aparecer uma vírgula entre elementos, que pode atrapalhar.
     sectionCenter.innerHTML = displayMenu;
-})
+}
+
+const sectionCenter = document.querySelector('.section-center');
+window.addEventListener('DOMContentLoaded', displayMenuItems(menu));
