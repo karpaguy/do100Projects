@@ -10,7 +10,7 @@ const menu = [
     {
         id: 2,
         title: "Bolo Sabooroso",
-        category: "cafe-manha",
+        category: "almoco",
         price: 15.99,
         img: "./images/Quinoa_Chocolate_Cake.jpg",
         desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat error facilis odit corrupti modi sunt ipsam itaque, incidunt quo aspernatur?"
@@ -39,4 +39,25 @@ function displayMenuItems(menuItems) {
 }
 
 const sectionCenter = document.querySelector('.section-center');
+const filterBtns = document.querySelectorAll('.filter-btn');
+
+
 window.addEventListener('DOMContentLoaded', displayMenuItems(menu));
+
+filterBtns.forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+        const category = e.currentTarget.dataset.id;
+        const menuCategory = menu.filter(function(menuItem) {
+            if(menuItem.category === category) {
+                return menuItem;
+            }
+        });
+
+        if(category === 'tudo') {
+            displayMenuItems(menu);
+        }
+        else {
+            displayMenuItems(menuCategory);
+        }
+    });
+});
