@@ -23,7 +23,7 @@ h1 {
     font-size: 48px;
     font-weight: 800;
     position: absolute;
-    bottom: 90%;
+    bottom: 85%;
     z-index: 1;
 }
 
@@ -37,9 +37,16 @@ h1 {
     animation: 5s glowing alternate infinite;
     animation-delay: 2s;
     transition-timing-function: linear;
+
+    transition: 0.3s;
+}
+.moon:hover {
+    cursor: pointer;
+    width: 252px;
+    height: 252px;
 }
 
-.quote-container {
+.curio {
     max-width: 50vw;
     text-align: center;
     position: absolute;
@@ -47,6 +54,11 @@ h1 {
     z-index: 1;
 }
 
+/* TODO → Fazer com que a "curio" fique sempre igual quando a janela está pela metade. Isso envolveria a troca de max-width e possivelmente definir um tamanho para tudo com base no h1.
+
+Checar referênciaTODO. */
+
+/* ----- ANIMATIONS ----- */
 @keyframes glowing {
     0% {
 
