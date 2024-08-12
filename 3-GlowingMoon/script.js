@@ -7,12 +7,16 @@ let curioArr = [
 const moon = document.querySelector('.moon');
 const curio = document.querySelector('.curio');
 
+let oldQuoteIndex = 0;
 moon.addEventListener('click', () => {
-    let randomNum = Math.floor(Math.random() * curioArr.length);
-    curio.innerText = curioArr[randomNum];
+    do {
+        newQuoteIndex = Math.floor(Math.random() * curioArr.length);
+        // console.log(`OldNum = ${oldQuoteIndex} | NewNum = ${newQuoteIndex}`) DEBUG
+    } while (oldQuoteIndex == newQuoteIndex);
+    oldQuoteIndex = newQuoteIndex;
+    curio.innerText = curioArr[newQuoteIndex];
 })
 
 /* TODO → Adicionar algumas curiosidades de verdade e dar uma transição para elas quando alterar de frase.
 
-• Não repetir a mesma frase quando apertar a Lua.
 • Seria maneiro conseguir dar uma cor aleatória para o texto, usando um array de cores ou algo assim. */
