@@ -1,18 +1,24 @@
 let curioArr = [
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum unde illum, molestiae nostrum nemo similique distinctio autem itaque doloremque? Repellat expedita numquam fugit repellendus enim, minus unde eos ut accusamus.", 
-    "Lorem IPSODMA dolor sit amet consectetur adipisicing elit. EuASDm unde illum, MASOS nostrum nemo similique distinctio autem itaASDque doloremque? Repellat expedita numquam fugit repellendus enimASDASDAQ, minus unde eos ut accusamus.", 
-    "Lorem LOREM LOREM sitLOREM consectetur adipisicingLOREM elit. Eum unde illum, molestiae nostrum nemo similique distinctio autem itaque doloremque? Repellat expedita numquam fugit repellendus enim, minus unde eos ut accusamus."
+    "The most widely accepted theory about the origin of the Moon is that it formed after a giant impact between Earth and a Mars-sized body called Theia, around 4.5 billion years ago. Even so, the Moon is very young!", 
+    "The temperature on the Moon's surface varies drastically, from about 127°C during the lunar day to -173°C during the lunar night, due to the lack of an atmosphere to regulate the heat. ", 
+    "The Moon is in synchronous rotation with Earth, which means we always see the same side of it. The opposite side, called the 'far side' of the Moon, was first observed in 1959 by the Soviet mission Luna 3."
 ];
+
+console.log('Curiosities obtained with ChatGPT, thanks GPT :D. Also, hi for you looking at the code or the console.')
 
 const moon = document.querySelector('.moon');
 const curio = document.querySelector('.curio');
 
+let oldQuoteIndex = 0;
 moon.addEventListener('click', () => {
-    let randomNum = Math.floor(Math.random() * curioArr.length);
-    curio.innerText = curioArr[randomNum];
+    do {
+        newQuoteIndex = Math.floor(Math.random() * curioArr.length);
+        // console.log(`OldNum = ${oldQuoteIndex} | NewNum = ${newQuoteIndex}`) DEBUG
+    } while (oldQuoteIndex == newQuoteIndex);
+    oldQuoteIndex = newQuoteIndex;
+    curio.innerText = curioArr[newQuoteIndex];
 })
 
-/* TODO → Adicionar algumas curiosidades de verdade e dar uma transição para elas quando alterar de frase.
+/* TODO → Dar uma transição para as curiosidades quando alterar de frase.
 
-• Não repetir a mesma frase quando apertar a Lua.
 • Seria maneiro conseguir dar uma cor aleatória para o texto, usando um array de cores ou algo assim. */
