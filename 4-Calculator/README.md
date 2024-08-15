@@ -1,0 +1,3 @@
+É uma calculadora simples...
+
+com um twist :D.
