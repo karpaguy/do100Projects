@@ -1,0 +1,40 @@
+Inimigo {
+	vida: 100
+	dano: 20
+	tempo_ataque: 2 /* turnos passados */
+}
+
+Jogador {
+	vida: 100
+	dano: 20
+	escudo: false /* false e true, para desativado e ativado */
+}
+
+let rodada = 0
+combate() {
+	turnoJ()
+	if(rodada % tempo_ataque == 0) {
+		turnoI()
+	}
+
+	rodada++
+}
+
+turnoJ() {
+	jogador.escudo = 0
+	switch(ação) {
+	case(espada) {
+		inimigo.vida -= jogador.dano
+	}
+	case(escudo) {
+		jogador.escudo = true
+	}
+	}
+}
+
+turnoI() {
+	/* operadores ternários dps */
+	if (jogador.escudo == false) { 
+		jogador.vida -= inimigo.dano
+	} 	
+}
