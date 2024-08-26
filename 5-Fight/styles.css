@@ -55,6 +55,43 @@ h1~span {
     /* IMAGE IS SCALING WITH THE FONT-SIZE, AAAAAAA */
 }
 
+.word-challenge {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: auto;
+}
+
+.word-challenge>span {
+    font-size: 2rem;
+}
+
+.word-challenge .word {
+    font-family: "MedievalSharp", cursive;
+    font-size: 6rem;
+    font-style: italic;
+    margin-top: 0.5rem;
+}
+
+.player-input>input {
+    border: none;
+    border-bottom: 2px solid black;
+    background-color: transparent;
+    font-size: 2rem;
+    font-family: "MedievalSharp", cursive;
+    text-align: center;
+}
+.player-input>input:focus {
+    outline: none;
+}
+.player-input .confirm {
+    font-size: 1.5rem;
+    padding: 0px 1rem;
+    cursor: pointer;
+}
+
+
+
 /* ---------- BATTLE-ZONE CSS ---------- */
 
 .combat-log {
@@ -74,19 +111,22 @@ h1~span {
 }
 
 /* Animations & Keyframes */
-@keyframes pImg {
-    0% {
-        transform: skew(0deg, 0deg);
-    }
-    50% {
-        transform: skew(6deg, 0deg);
-    }
-    100% {
-        transform: skew(-6deg, 0deg);
-    }
+@keyframes enemyAni {
+    0% { transform: skew(0deg, 0deg); }
+    50% { transform: skew(3deg, 0deg); }
+    100% { transform: skew(0deg, 0deg); }
 }
 
-.p-img {
-    
-    animation: pImg 3s infinite alternate-reverse;
+@keyframes playerAni {
+    0% { transform: skew(0deg, 0deg); }
+    50% { transform: skew(-3deg, 0deg); }
+    100% { transform: skew(0deg, 0deg); }
+}
+
+#enemy {
+    animation: enemyAni 4s infinite;
+}
+
+#player {
+    animation: playerAni 4s infinite;
 }
