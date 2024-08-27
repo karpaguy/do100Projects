@@ -62,7 +62,7 @@ h1~span {
     height: auto;
 }
 
-.word-challenge>span {
+.word-challenge .enemy-phrase {
     font-size: 2rem;
 }
 

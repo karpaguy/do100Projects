@@ -11,11 +11,11 @@ const wordList = [
     },
 ]
 
-// const playerInput = document.querySelector('#player-input');
-// Não precisa, dá para pegar direto o text value.
-
 const confirmBtn = document.querySelector('#confirm-btn')
 const wordSlot = document.querySelector('.word-slot');
+const scoreboard = document.querySelector('.scoreboard');
+const enemyPhrase = document.querySelector('.enemy-phrase')
+
 let gameScore = 0;
 let rowWord;
 
@@ -32,35 +32,40 @@ function checkWord(playerInput) {
 
 }
 
-
-confirmBtn.addEventListener('click', () => {
-    gameRow((document.querySelector('#player-input').value))
-})
-
-
 // Start and Row Functions
 function gameStart() {
     rowWord = selectWord()
     wordSlot.textContent  = rowWord.word;
+    scoreboard.textContent = `Score → ${gameScore}`;
     // Texto → The word I command now is...
 }
 function gameRow(playerInput) {
-   if(checkWord(playerInput)) {
-    gameScore++;
-    console.log(`Okay... Score: ${gameScore}`);
-   }
-   else {
-    gameScore--;
-    console.log(`Okay... Score: ${gameScore}`);
-   }
-   
-   rowWord = selectWord()
-   wordSlot.textContent  = rowWord.word;
-   // Isso poderia virar uma função até... É usado duas vezes.
+    // checkWord(playerInput) ? () => { enemyPhrase.textContent = "DAMN YOU! But how about... "; gameScore++ } : () => { enemyPhrase.textContent = "SUFFER! Now, how about... "; gameScore-- }
+    // Didn't work like that.
+    if (checkWord(playerInput)) {
+        enemyPhrase.textContent = "DAMN YOU! But how about... ";
+        gameScore++;
+    } else {
+        enemyPhrase.textContent = "SUFFER! Now, how about... ";;
+        gameScore--;
+    }
 
-    // Texto → DAMN YOU! But how about... || SUFFER! Hou about...
-
+    rowWord = selectWord()
+    wordSlot.textContent  = rowWord.word;
+    scoreboard.textContent = `Score → ${gameScore}`;
 }
 
+confirmBtn.addEventListener('click', () => {
+
+
+    gameRow((document.querySelector('#player-input').value))
+})
+
 gameStart()
-console.log(console.log(rowWord.similiar))
+
+/* TODO
+• Confirm through enter;
+• The last word showed won't right after being shown.
+• Turn wordList external.
+• Make a fun battle log.
+*/
