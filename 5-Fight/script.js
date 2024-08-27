@@ -8,37 +8,59 @@ const wordList = [
         id: 2,
         word: "finger",
         similiar: ["hand"]
-    }
+    },
 ]
 
+// const playerInput = document.querySelector('#player-input');
+// Não precisa, dá para pegar direto o text value.
 
-// const palavras = [
-//     {
-//         id: 1
-//         palavra: "não"
-//         semissinônimo: ["negativo", "errado"],
-//     },
-//     {
-//         id: 2
-//         palavra: "garrafa"
-//         semissinônimo: ["frasco", "jarra"],
-//     }
-// ]
+const confirmBtn = document.querySelector('#confirm-btn')
+const wordSlot = document.querySelector('.word-slot');
+let gameScore = 0;
+let rowWord;
 
-// let score = 0;
-// const lacuna = queryDocument('.lacuna');
+// Game Functions
+function selectWord() {
+    return wordList[Math.floor(Math.random() * wordList.length)];
+}
+function checkWord(playerInput) {
+    if (rowWord['similiar'].find(item => item === playerInput)) {
+        return true;
+    }
+    return false;
+    // COLOCAR EM OPERADOR TERNÁRIO, TALVEZ ATÉ MESMO LÁ DENTRO DE gameRow();
 
-// function rodada() {
-//     let number = random();
-//     lacuna.propriedadeTexto = palavras[number].palavra
+}
 
-//     if (palavraJogador == conferirResposta(number)) {
-//         score++
-//     } else {
-//         score--
-//     }
-// };
 
-// function conferirResposta(n) {
-//     procurar(palavraJogador) em palavras[n].semissinônimo;
-// };
+confirmBtn.addEventListener('click', () => {
+    gameRow((document.querySelector('#player-input').value))
+})
+
+
+// Start and Row Functions
+function gameStart() {
+    rowWord = selectWord()
+    wordSlot.textContent  = rowWord.word;
+    // Texto → The word I command now is...
+}
+function gameRow(playerInput) {
+   if(checkWord(playerInput)) {
+    gameScore++;
+    console.log(`Okay... Score: ${gameScore}`);
+   }
+   else {
+    gameScore--;
+    console.log(`Okay... Score: ${gameScore}`);
+   }
+   
+   rowWord = selectWord()
+   wordSlot.textContent  = rowWord.word;
+   // Isso poderia virar uma função até... É usado duas vezes.
+
+    // Texto → DAMN YOU! But how about... || SUFFER! Hou about...
+
+}
+
+gameStart()
+console.log(console.log(rowWord.similiar))
