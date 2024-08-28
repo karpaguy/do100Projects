@@ -46,7 +46,7 @@ function gameRow(playerInput) {
         enemyPhrase.textContent = "DAMN YOU! But how about... ";
         gameScore++;
     } else {
-        enemyPhrase.textContent = "SUFFER! Now, how about... ";;
+        enemyPhrase.textContent = "SUFFER! Now, how about... ";
         gameScore--;
     }
 

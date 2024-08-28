@@ -1,11 +1,13 @@
 /* FONTS */
 @import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
 
 * {
     margin: 0;
     padding: 0;
     font-size: 10px;
     box-sizing: border-box;
+    font-family: "MedievalSharp", cursive;
 }
 body {
     min-height: 100vh;
@@ -13,24 +15,23 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
 .container {
     max-width: 40vw;
+    margin-top: 4rem;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 h1 {
-    font-family: "MedievalSharp", cursive;
-    font-weight: 400;
-    font-style: normal;
     font-size: 8rem;
 }
 h1~span {
-    color: red;
+    color: rgb(182, 109, 109);
     font-size: 2rem;
+    font-style: normal;
+    margin: 1.8rem 0px 4rem 0px;
 }
 
 
@@ -39,7 +40,6 @@ h1~span {
     display: flex;
     width: 100%;
     justify-content: space-between;
-    margin-top: 8rem;
 
     background-color: beige;
     border: 2px solid rgb(229, 229, 229);
@@ -51,8 +51,12 @@ h1~span {
     flex-direction: column;
 
 }
-.player-info span {
-    /* IMAGE IS SCALING WITH THE FONT-SIZE, AAAAAAA */
+.side-name {
+    font-family: 'Play';
+    font-style: normal;
+    font-weight: 400;
+    margin-top: 1rem;
+    /* IMAGE IS SCALING WITH THIS FONT-SIZE, AAAAAAA */
 }
 
 .word-challenge {
@@ -63,14 +67,15 @@ h1~span {
 }
 
 .word-challenge .enemy-phrase {
-    font-size: 2rem;
+    font-size: 2.5rem;
+    font-style: italic;
 }
 
 .word-challenge .word-slot {
-    font-family: "MedievalSharp", cursive;
     font-size: 6rem;
     font-style: italic;
     margin-top: 0.5rem;
+    text-shadow: rgb(84, 21, 136) 1px 0 10px;
 }
 
 .player-input>input {
@@ -78,7 +83,7 @@ h1~span {
     border-bottom: 2px solid black;
     background-color: transparent;
     font-size: 2rem;
-    font-family: "MedievalSharp", cursive;
+
     text-align: center;
 }
 .player-input>input:focus {
