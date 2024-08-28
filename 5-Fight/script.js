@@ -1,45 +1,71 @@
-const attackBtn = document.querySelector('#attack');
-const shieldBtn = document.querySelector('#shield');
+const wordList = [
+    {
+        id: 1,
+        word: "flask",
+        similiar: ["bottle", "cup", "kettle", "bucket", "mug", "glass"]
+    },
+    {
+        id: 2,
+        word: "finger",
+        similiar: ["hand"]
+    },
+]
 
-const enemy = {
-    Life: 100,
-    Damage: 20,
-    Attack_time: 2,
-};
-const player = {
-    Life: 30,
-    Damage: 20,
-    Shield: false,
-};
+const confirmBtn = document.querySelector('#confirm-btn')
+const wordSlot = document.querySelector('.word-slot');
+const scoreboard = document.querySelector('.scoreboard');
+const enemyPhrase = document.querySelector('.enemy-phrase')
 
-let roundTimer = 0;
+let gameScore = 0;
+let rowWord;
 
-function turnPlayer(action) {
-    // The PLAYER will no longer be protect at start of HIS turn.
-    player["Shield"] = false;
-    switch(action) {
-        case "Attack": 
-            enemy["Life"] -= player["Damage"];
-            break;
-        case "Shield": 
-            player["Shield"] = true;
-            break;
-    }
+// Game Functions
+function selectWord() {
+    return wordList[Math.floor(Math.random() * wordList.length)];
 }
-function turnEnemy() {
-    // Turn this into a ternary operator later.
-    if (player["Shield"] === false && (roundTimer % enemy["Attack_time"]) == 0 ) 
-        {
-            player["Life"] -= enemy["Damage"]
-        }
-};
-function combatRound(action){
-    roundTimer++
-    console.log(`Turn === ${roundTimer}`);
-    turnPlayer(action);
-    turnEnemy();
-    console.log(`Player Life = ${player.Life} || Enemy Life = ${enemy.Life}`);
-};
+function checkWord(playerInput) {
+    if (rowWord['similiar'].find(item => item === playerInput)) {
+        return true;
+    }
+    return false;
+    // COLOCAR EM OPERADOR TERNÁRIO, TALVEZ ATÉ MESMO LÁ DENTRO DE gameRow();
 
-attackBtn.addEventListener('click', () => combatRound("Attack"))
-shieldBtn.addEventListener('click', () => combatRound("Shield"))
+}
+
+// Start and Row Functions
+function gameStart() {
+    rowWord = selectWord()
+    wordSlot.textContent  = rowWord.word;
+    scoreboard.textContent = `Score → ${gameScore}`;
+    // Texto → The word I command now is...
+}
+function gameRow(playerInput) {
+    // checkWord(playerInput) ? () => { enemyPhrase.textContent = "DAMN YOU! But how about... "; gameScore++ } : () => { enemyPhrase.textContent = "SUFFER! Now, how about... "; gameScore-- }
+    // Didn't work like that.
+    if (checkWord(playerInput)) {
+        enemyPhrase.textContent = "DAMN YOU! But how about... ";
+        gameScore++;
+    } else {
+        enemyPhrase.textContent = "SUFFER! Now, how about... ";
+        gameScore--;
+    }
+
+    rowWord = selectWord()
+    wordSlot.textContent  = rowWord.word;
+    scoreboard.textContent = `Score → ${gameScore}`;
+}
+
+confirmBtn.addEventListener('click', () => {
+
+
+    gameRow((document.querySelector('#player-input').value))
+})
+
+gameStart()
+
+/* TODO
+• Confirm through enter;
+• The last word showed won't right after being shown.
+• Turn wordList external.
+• Make a fun battle log.
+*/

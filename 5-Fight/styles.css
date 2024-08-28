@@ -1,11 +1,13 @@
 /* FONTS */
 @import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
 
 * {
     margin: 0;
     padding: 0;
     font-size: 10px;
     box-sizing: border-box;
+    font-family: "MedievalSharp", cursive;
 }
 body {
     min-height: 100vh;
@@ -13,24 +15,26 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+    background-size: cover;
 }
 .container {
     max-width: 40vw;
+    margin-top: 4rem;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 h1 {
-    font-family: "MedievalSharp", cursive;
-    font-weight: 400;
-    font-style: normal;
     font-size: 8rem;
 }
 h1~span {
-    color: red;
+    color: rgb(182, 109, 109);
+    /* text-shadow: rgb(0, 0, 0) 2px 2px 1px; */
     font-size: 2rem;
+    font-style: normal;
+    margin: 1.8rem 0px 4rem 0px;
 }
 
 
@@ -39,11 +43,10 @@ h1~span {
     display: flex;
     width: 100%;
     justify-content: space-between;
-    margin-top: 8rem;
 
-    background-color: beige;
-    border: 2px solid rgb(229, 229, 229);
-    border-radius: 5px;
+    border: 7px double rgb(46, 112, 212);
+    background-color: rgb(205, 155, 39, 0.2);
+    border-radius: 10px;
     padding: 20px;
 }
 .player-side, .enemy-side {
@@ -51,17 +54,62 @@ h1~span {
     flex-direction: column;
 
 }
-.player-info span {
-    /* IMAGE IS SCALING WITH THE FONT-SIZE, AAAAAAA */
+.side-name {
+    font-family: 'Play';
+    font-style: normal;
+    font-weight: 400;
+    margin-top: 1rem;
+    /* IMAGE IS SCALING WITH THIS FONT-SIZE, AAAAAAA */
 }
+
+.word-challenge {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: auto;
+}
+
+.word-challenge .enemy-phrase {
+    font-size: 2.5rem;
+    font-style: italic;
+}
+
+.word-challenge .word-slot {
+    font-size: 6rem;
+    font-style: italic;
+    margin-top: 0.5rem;
+    text-shadow: rgb(84, 21, 136) 1px 0 10px;
+}
+
+.player-input>input {
+    border: none;
+    border-bottom: 2px solid black;
+    background-color: transparent;
+    font-size: 2rem;
+
+    text-align: center;
+}
+.player-input>input:focus {
+    outline: none;
+}
+#confirm-btn {
+    font-size: 1.5rem;
+    padding: 0px 1rem;
+    cursor: pointer;
+}
+
+
 
 /* ---------- BATTLE-ZONE CSS ---------- */
 
 .combat-log {
     width: 80%;
     height: 200px;
-    background-color: rgb(250, 250, 241);
-    border: 3px solid rgb(229, 229, 229);
+    /* background-color: rgb(250, 250, 241); */
+    /* border: 3px solid rgb(229, 229, 229); */
+    border: 7px double rgb(46, 112, 212);
+    background-color: rgb(205, 155, 39, 0.2);
+    border-radius: 10px;
     border-radius: 5px;
     margin-top: 20px;
 }
@@ -74,19 +122,22 @@ h1~span {
 }
 
 /* Animations & Keyframes */
-@keyframes pImg {
-    0% {
-        transform: skew(0deg, 0deg);
-    }
-    50% {
-        transform: skew(6deg, 0deg);
-    }
-    100% {
-        transform: skew(-6deg, 0deg);
-    }
+@keyframes enemyAni {
+    0% { transform: skew(0deg, 0deg); }
+    50% { transform: skew(4deg, -2deg); }
+    100% { transform: skew(0deg, 0deg); }
 }
 
-.p-img {
-    
-    animation: pImg 3s infinite alternate-reverse;
+@keyframes playerAni {
+    0% { transform: skew(0deg, 0deg); }
+    50% { transform: skew(-4deg, 2deg); }
+    100% { transform: skew(0deg, 0deg); }
+}
+
+#enemy {
+    animation: enemyAni 4s infinite;
+}
+
+#player {
+    animation: playerAni 4s infinite;
 }

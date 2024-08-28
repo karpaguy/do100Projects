@@ -11,17 +11,27 @@
     
     <div class="container">
         <h1>TIME TO BATTLE!</h1>
-        <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti sit quas quisquam error commodi magnam. Repellendus magni at quod nihil? Enim a quod, quisquam sapiente reprehenderit numquam totam laborum officia.</span>
+        <span>Noble warrior, heed my counsel! The mage below dost comprehend the power hidden within words, and it is imperative that thou rebuff all that he doth utter! But not with thy sword; nay, with thy words likewise. Repel him with like speech, and the mage shall be unable to vanquish thee.</span>
 
         <div class="battle-zone">
             <div class="enemy-side">
-                <img src="./images/enemy.png" alt="enemy" class="p-img">
-                <span>Mago Malvado</span>
+                <img src="./images/enemy.png" alt="enemy" id="enemy">
+                <span class="side-name">That Wizard</span>
+            </div>
+
+            <div class="word-challenge">
+                <span class="enemy-phrase">Hah! I command the word...</span>
+                <span class="word-slot"></span>
+
+                <div class="player-input">
+                    <input type="text" id="player-input">
+                    <button id="confirm-btn">○</button>
+                </div>
             </div>
 
             <div class="player-side">
-                <img src="./images/player.png" alt="player" class="p-img">
-                <span>Jogador Malevolente</span>
+                <img src="./images/player.png" alt="player" id="player">
+                <span class="side-name">Thy Warrior</span>
                 <div class="stats">
                     <hp id="player-hp"></hp>
                 </div>
@@ -29,6 +39,8 @@
         </div>
 
         <div class="combat-log"></div>
+
+        <p class="scoreboard"></span>
     </div>
 
     <script src="./script.js"></script>
