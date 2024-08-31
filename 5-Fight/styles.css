@@ -8,6 +8,8 @@
     font-size: 10px;
     box-sizing: border-box;
     font-family: "MedievalSharp", cursive;
+
+    --fontColor: #f0f8ff;
 }
 body {
     min-height: 100vh;
@@ -15,7 +17,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+    /* background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)) */
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(42, 38, 38, 0.6)), url('./images/DALLE\ Lavander\ Plain.webp');
     background-size: cover;
 }
 .container {
@@ -28,10 +31,11 @@ body {
 
 h1 {
     font-size: 8rem;
+    color: var(--fontColor);
 }
 h1~span {
-    color: rgb(182, 109, 109);
-    /* text-shadow: rgb(0, 0, 0) 2px 2px 1px; */
+    color: var(--fontColor);
+    text-shadow: rgb(22, 22, 22, 0.5) 2px 2px 1px;
     font-size: 2rem;
     font-style: normal;
     margin: 1.8rem 0px 4rem 0px;
@@ -44,10 +48,11 @@ h1~span {
     width: 100%;
     justify-content: space-between;
 
-    border: 7px double rgb(46, 112, 212);
+    border: 8px double rgb(24, 22, 56);
     background-color: rgb(205, 155, 39, 0.2);
     border-radius: 10px;
-    padding: 20px;
+    padding: 2rem;
+    color: var(--fontColor);
 }
 .player-side, .enemy-side {
     display: flex;
@@ -72,12 +77,14 @@ h1~span {
 .word-challenge .enemy-phrase {
     font-size: 2.5rem;
     font-style: italic;
+    text-shadow: rgb(22, 22, 22) 2px 2px 1px;
 }
 
 .word-challenge .word-slot {
     font-size: 6rem;
     font-style: italic;
     margin-top: 0.5rem;
+    color: black;
     text-shadow: rgb(84, 21, 136) 1px 0 10px;
 }
 
@@ -107,7 +114,7 @@ h1~span {
     height: 200px;
     /* background-color: rgb(250, 250, 241); */
     /* border: 3px solid rgb(229, 229, 229); */
-    border: 7px double rgb(46, 112, 212);
+    border: 8px double rgb(24, 22, 56);
     background-color: rgb(205, 155, 39, 0.2);
     border-radius: 10px;
     border-radius: 5px;
