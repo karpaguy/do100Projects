@@ -1,15 +1,17 @@
-const wordList = [
-    {
-        id: 1,
-        word: "flask",
-        similiar: ["bottle", "cup", "kettle", "bucket", "mug", "glass"]
-    },
-    {
-        id: 2,
-        word: "finger",
-        similiar: ["hand"]
-    },
-]
+// const wordList = [
+//     {
+//         id: 1,
+//         word: "flask",
+//         similiar: ["bottle", "cup", "kettle", "bucket", "mug", "glass"]
+//     },
+//     {
+//         id: 2,
+//         word: "finger",
+//         similiar: ["hand"]
+//     },
+// ]
+
+import {wordList} from './words.js'
 
 const confirmBtn = document.querySelector('#confirm-btn')
 const wordSlot = document.querySelector('.word-slot');
