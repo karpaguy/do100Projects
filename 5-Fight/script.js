@@ -66,6 +66,6 @@ gameStart()
 /* TODO
 • Confirm through enter;
 • The last word showed won't right after being shown.
-• Turn wordList external.
+• Turn wordList fetch.
 • Make a fun battle log.
 */
